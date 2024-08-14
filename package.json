@@ -1,0 +1,30 @@
+{
+  "name": "ciphersprint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypher.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcdaniiel/ciphersprint.git"
+  },
+  "keywords": [
+    "pulley",
+    "ciphersprint"
+  ],
+  "author": "Daniel Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcdaniiel/ciphersprint/issues"
+  },
+  "homepage": "https://github.com/dcdaniiel/ciphersprint#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "msgpack5": "^6.0.2"
+  }
+}

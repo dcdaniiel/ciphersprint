@@ -4,6 +4,10 @@ import { RemoveNonHex } from "./decryptor/non-hex.mjs";
 import { Rotate } from "./decryptor/rotate.mjs";
 import { CustomHexDecode } from "./decryptor/custom-hex-decode.mjs";
 import { MessagePack } from "./decryptor/message-pack.mjs";
+import { Base64Decode } from "./decryptor/decodeBase64.mjs";
+import { SwapPairs } from "./decryptor/swapPairs.mjs";
+import { NormalizeAscii } from "./decryptor/NormalizeAscii.mjs";
+import { XORDecrypt } from "./decryptor/XOR.mjs";
 
 const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$/;
 
@@ -56,6 +60,22 @@ async function decrypt(challenge) {
 
     if(method.includes("original positions as base64")) {
         return MessagePack(challenge)
+    }
+
+    if(method.includes("encoded as base64")) {
+        return Base64Decode(challenge)
+    }
+
+    if(method.includes("swapped every pair of characters")) {
+        return SwapPairs(challenge)
+    }
+
+    if(method.includes("to ASCII value of each character")) {
+        return NormalizeAscii(challenge)
+    }
+
+    if(method.includes("hex decoded, encrypted with XOR, hex encoded again. key:")) {
+        return XORDecrypt(challenge)
     }
 
     return challenge.encrypted_path
